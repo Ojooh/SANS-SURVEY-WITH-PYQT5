@@ -1,0 +1,7 @@
+<RCC>
+  <qresource prefix="newPrefix">
+    <file>user_awareness1.png</file>
+    <file>go-back.png</file>
+    <file>register-image.png</file>
+  </qresource>
+</RCC>

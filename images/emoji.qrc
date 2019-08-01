@@ -1,0 +1,7 @@
+<RCC>
+  <qresource prefix="emojis">
+    <file>master.jpg</file>
+    <file>leveler.png</file>
+    <file>intermediate.png</file>
+  </qresource>
+</RCC>
