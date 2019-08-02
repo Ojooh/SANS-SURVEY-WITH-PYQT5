@@ -1,6 +1,7 @@
 <RCC>
   <qresource prefix="images">
     <file>nextt.png</file>
+    <file>back.jpg</file>
     <file>user_awareness1.png</file>
     <file>start.png</file>
     <file>welcome.jpg</file>

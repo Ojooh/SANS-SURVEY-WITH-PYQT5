@@ -39,10 +39,10 @@
         <widget class="QLabel" name="emojiLabel">
          <property name="geometry">
           <rect>
-           <x>50</x>
-           <y>50</y>
-           <width>241</width>
-           <height>231</height>
+           <x>10</x>
+           <y>20</y>
+           <width>221</width>
+           <height>211</height>
           </rect>
          </property>
          <property name="styleSheet">
@@ -57,21 +57,26 @@ image: url(:/emojis/leveler.png);</string>
         <widget class="QLabel" name="label_2">
          <property name="geometry">
           <rect>
-           <x>350</x>
-           <y>90</y>
-           <width>1271</width>
+           <x>240</x>
+           <y>70</y>
+           <width>1381</width>
            <height>91</height>
           </rect>
          </property>
+         <property name="styleSheet">
+          <string notr="true">*{
+font: 75 17pt &quot;Comic Sans MS&quot;;
+}</string>
+         </property>
          <property name="text">
-          <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Thank You for Taking your Time to fill this survey, do have a Lovely Day!!&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+          <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:16pt; font-weight:400;&quot;&gt;THANK YOU FOR TAKING YOUR TIME TO FILL THIS SURVEY, DO HAVE A LOVELY DAY !&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
          </property>
         </widget>
         <widget class="QLabel" name="label_3">
          <property name="geometry">
           <rect>
-           <x>350</x>
-           <y>190</y>
+           <x>340</x>
+           <y>160</y>
            <width>1001</width>
            <height>91</height>
           </rect>
@@ -83,10 +88,10 @@ image: url(:/emojis/leveler.png);</string>
         <widget class="QLabel" name="scoreLabel">
          <property name="geometry">
           <rect>
-           <x>350</x>
-           <y>300</y>
+           <x>340</x>
+           <y>270</y>
            <width>1001</width>
-           <height>171</height>
+           <height>191</height>
           </rect>
          </property>
          <property name="styleSheet">
@@ -99,8 +104,8 @@ image: url(:/emojis/leveler.png);</string>
         <widget class="QLabel" name="commentLabel">
          <property name="geometry">
           <rect>
-           <x>240</x>
-           <y>510</y>
+           <x>120</x>
+           <y>490</y>
            <width>1401</width>
            <height>121</height>
           </rect>
@@ -112,7 +117,7 @@ image: url(:/emojis/leveler.png);</string>
         <widget class="QFrame" name="startPageFrame">
          <property name="geometry">
           <rect>
-           <x>0</x>
+           <x>10</x>
            <y>0</y>
            <width>1631</width>
            <height>982</height>
@@ -148,9 +153,9 @@ image: url(:/emojis/leveler.png);</string>
          <widget class="QRadioButton" name="option1">
           <property name="geometry">
            <rect>
-            <x>190</x>
-            <y>240</y>
-            <width>1211</width>
+            <x>80</x>
+            <y>220</y>
+            <width>1501</width>
             <height>81</height>
            </rect>
           </property>
@@ -161,22 +166,22 @@ image: url(:/emojis/leveler.png);</string>
          <widget class="QLabel" name="questionLabel_2">
           <property name="geometry">
            <rect>
-            <x>130</x>
-            <y>110</y>
-            <width>1451</width>
-            <height>121</height>
+            <x>30</x>
+            <y>100</y>
+            <width>1581</width>
+            <height>131</height>
            </rect>
           </property>
           <property name="text">
-           <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&amp;quot;1.	What is your position within the company?&amp;quot;,&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+           <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:12pt;&quot;&gt;&amp;quot;Do you use the same passwords for your work accounts as you do for your personnal accounts at home, such as facebook,twitter or your personnal email accounts?&amp;quot;,&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
           </property>
          </widget>
          <widget class="QRadioButton" name="option2">
           <property name="geometry">
            <rect>
-            <x>190</x>
-            <y>330</y>
-            <width>1211</width>
+            <x>80</x>
+            <y>310</y>
+            <width>1501</width>
             <height>81</height>
            </rect>
           </property>
@@ -206,9 +211,9 @@ image: url(:/emojis/leveler.png);</string>
          <widget class="QRadioButton" name="option3">
           <property name="geometry">
            <rect>
-            <x>190</x>
-            <y>420</y>
-            <width>1211</width>
+            <x>80</x>
+            <y>400</y>
+            <width>1501</width>
             <height>81</height>
            </rect>
           </property>
@@ -219,100 +224,153 @@ image: url(:/emojis/leveler.png);</string>
          <widget class="QPushButton" name="nextBtn">
           <property name="geometry">
            <rect>
-            <x>640</x>
-            <y>620</y>
-            <width>361</width>
-            <height>141</height>
+            <x>760</x>
+            <y>520</y>
+            <width>251</width>
+            <height>101</height>
            </rect>
           </property>
           <property name="styleSheet">
-           <string notr="true">background-image: url(:/images/nextt.png);</string>
+           <string notr="true">image: url(:/images/nextt.png);</string>
           </property>
           <property name="text">
            <string/>
           </property>
          </widget>
-         <widget class="QFrame" name="welcomeFrame">
+         <widget class="QPushButton" name="backBtn">
+          <property name="geometry">
+           <rect>
+            <x>550</x>
+            <y>510</y>
+            <width>171</width>
+            <height>111</height>
+           </rect>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">image: url(:/images/back.jpg);</string>
+          </property>
+          <property name="text">
+           <string/>
+          </property>
+         </widget>
+         <widget class="QLabel" name="label_18">
+          <property name="geometry">
+           <rect>
+            <x>100</x>
+            <y>0</y>
+            <width>111</width>
+            <height>41</height>
+           </rect>
+          </property>
+          <property name="font">
+           <font>
+            <family>Comic Sans MS</family>
+            <pointsize>18</pointsize>
+            <weight>9</weight>
+            <italic>true</italic>
+            <bold>false</bold>
+           </font>
+          </property>
+          <property name="text">
+           <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:12pt;&quot;&gt;HomePage&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+          </property>
+         </widget>
+         <widget class="QPushButton" name="homeBtn">
           <property name="geometry">
            <rect>
             <x>0</x>
             <y>0</y>
-            <width>1631</width>
-            <height>951</height>
+            <width>71</width>
+            <height>61</height>
            </rect>
           </property>
-          <property name="frameShape">
-           <enum>QFrame::StyledPanel</enum>
+          <property name="styleSheet">
+           <string notr="true">image: url(:/newPrefix/homepage.png);</string>
           </property>
-          <property name="frameShadow">
-           <enum>QFrame::Raised</enum>
+          <property name="text">
+           <string/>
           </property>
-          <widget class="QLabel" name="welcomeIcon">
-           <property name="geometry">
-            <rect>
-             <x>24</x>
-             <y>40</y>
-             <width>261</width>
-             <height>781</height>
-            </rect>
-           </property>
-           <property name="styleSheet">
-            <string notr="true">background-image: url(:/images/welcome.jpg);</string>
-           </property>
-           <property name="text">
-            <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;br/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-           </property>
-          </widget>
-          <widget class="QLabel" name="welcomeLabel">
-           <property name="geometry">
-            <rect>
-             <x>290</x>
-             <y>0</y>
-             <width>1321</width>
-             <height>101</height>
-            </rect>
-           </property>
-           <property name="text">
-            <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Welcome &lt;span style=&quot; font-size:12pt;&quot;&gt;mmmmmmmmmm&lt;/span&gt;!, Thank you for offering to participate in this test. CLick start to begin.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-           </property>
-          </widget>
-          <widget class="QLabel" name="logoIcon">
-           <property name="geometry">
-            <rect>
-             <x>310</x>
-             <y>100</y>
-             <width>1281</width>
-             <height>631</height>
-            </rect>
-           </property>
-           <property name="styleSheet">
-            <string notr="true">
-background-image: url(:/images/user_awareness1.png);</string>
-           </property>
-           <property name="text">
-            <string>TextLabel</string>
-           </property>
-          </widget>
-          <widget class="QPushButton" name="startbtn">
-           <property name="geometry">
-            <rect>
-             <x>800</x>
-             <y>740</y>
-             <width>221</width>
-             <height>201</height>
-            </rect>
-           </property>
-           <property name="styleSheet">
-            <string notr="true">*{
+         </widget>
+        </widget>
+        <widget class="QFrame" name="welcomeFrame">
+         <property name="geometry">
+          <rect>
+           <x>0</x>
+           <y>0</y>
+           <width>1631</width>
+           <height>981</height>
+          </rect>
+         </property>
+         <property name="frameShape">
+          <enum>QFrame::StyledPanel</enum>
+         </property>
+         <property name="frameShadow">
+          <enum>QFrame::Raised</enum>
+         </property>
+         <widget class="QLabel" name="welcomeIcon">
+          <property name="geometry">
+           <rect>
+            <x>10</x>
+            <y>0</y>
+            <width>261</width>
+            <height>251</height>
+           </rect>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">background-image: url(:/images/welcome.jpg);</string>
+          </property>
+          <property name="text">
+           <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;br/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+          </property>
+         </widget>
+         <widget class="QLabel" name="welcomeLabel">
+          <property name="geometry">
+           <rect>
+            <x>280</x>
+            <y>0</y>
+            <width>1341</width>
+            <height>101</height>
+           </rect>
+          </property>
+          <property name="text">
+           <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:16pt;&quot;&gt;Welcome mmmmmmmmmm!, Thank you for offering to participate in this test. CLick start to begin.&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+          </property>
+         </widget>
+         <widget class="QLabel" name="logoIcon">
+          <property name="geometry">
+           <rect>
+            <x>610</x>
+            <y>100</y>
+            <width>541</width>
+            <height>621</height>
+           </rect>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">background-image: url(:/newPrefix/user_awareness1.png);</string>
+          </property>
+          <property name="text">
+           <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;br/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+          </property>
+         </widget>
+         <widget class="QPushButton" name="startbtn">
+          <property name="geometry">
+           <rect>
+            <x>800</x>
+            <y>760</y>
+            <width>221</width>
+            <height>201</height>
+           </rect>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">*{
 	border-radius: 40%;
 	
 	background-image: url(:/images/start.png);
 }</string>
-           </property>
-           <property name="text">
-            <string/>
-           </property>
-          </widget>
+          </property>
+          <property name="text">
+           <string/>
+          </property>
          </widget>
         </widget>
        </widget>

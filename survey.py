@@ -12,6 +12,7 @@ import re
 import os
 import json
 gee = []
+bee = []
 user_answer = []
 
 class Ui_surveyWindow(object):
@@ -19,6 +20,7 @@ class Ui_surveyWindow(object):
                 self.user_id = user_data
                 self.fname = ""
                 self.tag = ""
+                
                 database = "db/users.json"
                 ret = json.loads(open(database).read())
                 for i in range(len(ret)):
@@ -30,6 +32,12 @@ class Ui_surveyWindow(object):
                                 user_names = self.user_name.split()
                                 self.fname = user_names[0]
                                 break
+
+        def goHome(self):
+                self.welcomeFrame.show()
+
+        
+
 
         def get_answer(self):
                 op1 = self.option1.isChecked()
@@ -46,10 +54,13 @@ class Ui_surveyWindow(object):
 
         def start(self):
                 self.welcomeFrame.hide()
+                self.backBtn.hide()
                 filequestion = "db/questions.json"
                 fileoption = "db/options.json"
                 free = json.loads(open(filequestion).read())
                 multi = json.loads(open(fileoption).read())
+                qes = "1. " + free["1."]
+                # self.questionLabel_2.setText("<html><head/><body><p><span style=\" font-size:16pt;\">"+qes+ "</span></p></body></html>")
                 self.questionLabel_2.setText("1. " + free["1."])
                 self.option1.setText(multi[0][0])
                 self.option2.setText(multi[0][1])
@@ -57,6 +68,7 @@ class Ui_surveyWindow(object):
                 
 
         def nextQuestion(self):
+                self.backBtn.show()
                 ans = self.get_answer()
                 user_answer.append(ans)
                 d = 2
@@ -89,6 +101,14 @@ class Ui_surveyWindow(object):
                                 self.option1.setText(multi[index][0])
                                 self.option2.setText(multi[index][1])
                                 self.option3.setText(multi[index][2])
+
+        def prev(self):
+                if gee[0] == 1:
+                        self.welcomeFrame.show()
+                else:
+                        gee[0] = gee[0] - 2
+                        self.nextQuestion()
+                
 
 
         def calc(self, correct, ua):
@@ -136,7 +156,6 @@ class Ui_surveyWindow(object):
                         self.commentLabel.setText("<html><head/><body><p align=\"center\">You Can Be Better with a Cyber user security awareness training!!</p></body></html>")
 
 
-
         def setupUi(self, surveyWindow):
                 surveyWindow.setObjectName("surveyWindow")
                 surveyWindow.resize(1655, 1006)
@@ -158,31 +177,34 @@ class Ui_surveyWindow(object):
                 self.finishFrame.setFrameShadow(QtWidgets.QFrame.Raised)
                 self.finishFrame.setObjectName("finishFrame")
                 self.emojiLabel = QtWidgets.QLabel(self.finishFrame)
-                self.emojiLabel.setGeometry(QtCore.QRect(50, 50, 241, 231))
+                self.emojiLabel.setGeometry(QtCore.QRect(10, 20, 221, 211))
                 self.emojiLabel.setStyleSheet("image: url(:/emojis/master.jpg);\n"
         "image: url(:/emojis/intermediate.png);\n"
         "image: url(:/emojis/leveler.png);")
                 self.emojiLabel.setObjectName("emojiLabel")
                 self.label_2 = QtWidgets.QLabel(self.finishFrame)
-                self.label_2.setGeometry(QtCore.QRect(350, 90, 1271, 91))
+                self.label_2.setGeometry(QtCore.QRect(240, 70, 1381, 91))
+                self.label_2.setStyleSheet("*{\n"
+        "font: 75 17pt \"Comic Sans MS\";\n"
+        "}")
                 self.label_2.setObjectName("label_2")
                 self.label_3 = QtWidgets.QLabel(self.finishFrame)
-                self.label_3.setGeometry(QtCore.QRect(350, 190, 1001, 91))
+                self.label_3.setGeometry(QtCore.QRect(340, 160, 1001, 91))
                 self.label_3.setObjectName("label_3")
                 self.scoreLabel = QtWidgets.QLabel(self.finishFrame)
-                self.scoreLabel.setGeometry(QtCore.QRect(350, 300, 1001, 171))
+                self.scoreLabel.setGeometry(QtCore.QRect(340, 270, 1001, 191))
                 self.scoreLabel.setStyleSheet("font: 75 72pt \"Comic Sans MS\";")
                 self.scoreLabel.setObjectName("scoreLabel")
                 self.commentLabel = QtWidgets.QLabel(self.finishFrame)
-                self.commentLabel.setGeometry(QtCore.QRect(240, 510, 1401, 121))
+                self.commentLabel.setGeometry(QtCore.QRect(120, 490, 1401, 121))
                 self.commentLabel.setObjectName("commentLabel")
                 self.startPageFrame = QtWidgets.QFrame(self.finishFrame)
-                self.startPageFrame.setGeometry(QtCore.QRect(0, 0, 1631, 982))
+                self.startPageFrame.setGeometry(QtCore.QRect(10, 0, 1631, 982))
                 self.startPageFrame.setStyleSheet("*{\n"
         "    \n"
         "    background-color: rgb(255, 255, 255);\n"
         "    \n"
-        "    font: 75 italic 18pt \"Comic Sans MS\";\n"
+        "    font: 75 italic 13pt \"Comic Sans MS\";\n"
         "}")
                 self.startPageFrame.setFrameShape(QtWidgets.QFrame.StyledPanel)
                 self.startPageFrame.setFrameShadow(QtWidgets.QFrame.Raised)
@@ -191,13 +213,13 @@ class Ui_surveyWindow(object):
                 self.option3_2.setGeometry(QtCore.QRect(816, 1060, 1211, 91))
                 self.option3_2.setObjectName("option3_2")
                 self.option1 = QtWidgets.QRadioButton(self.startPageFrame)
-                self.option1.setGeometry(QtCore.QRect(190, 240, 1211, 81))
+                self.option1.setGeometry(QtCore.QRect(80, 220, 1501, 81))
                 self.option1.setObjectName("option1")
                 self.questionLabel_2 = QtWidgets.QLabel(self.startPageFrame)
-                self.questionLabel_2.setGeometry(QtCore.QRect(130, 110, 1451, 121))
+                self.questionLabel_2.setGeometry(QtCore.QRect(30, 100, 1581, 131))
                 self.questionLabel_2.setObjectName("questionLabel_2")
                 self.option2 = QtWidgets.QRadioButton(self.startPageFrame)
-                self.option2.setGeometry(QtCore.QRect(190, 330, 1211, 81))
+                self.option2.setGeometry(QtCore.QRect(80, 310, 1501, 81))
                 self.option2.setObjectName("option2")
                 self.pushButton = QtWidgets.QPushButton(self.startPageFrame)
                 self.pushButton.setGeometry(QtCore.QRect(1146, 1180, 361, 141))
@@ -208,33 +230,54 @@ class Ui_surveyWindow(object):
                 self.pushButton.setText("")
                 self.pushButton.setObjectName("pushButton")
                 self.option3 = QtWidgets.QRadioButton(self.startPageFrame)
-                self.option3.setGeometry(QtCore.QRect(190, 420, 1211, 81))
+                self.option3.setGeometry(QtCore.QRect(80, 400, 1501, 81))
                 self.option3.setObjectName("option3")
                 self.nextBtn = QtWidgets.QPushButton(self.startPageFrame)
-                self.nextBtn.setGeometry(QtCore.QRect(640, 620, 361, 141))
-                self.nextBtn.setStyleSheet("background-image: url(:/images/nextt.png);")
+                self.nextBtn.setGeometry(QtCore.QRect(760, 520, 251, 101))
+                self.nextBtn.setStyleSheet("image: url(:/images/nextt.png);")
                 self.nextBtn.setText("")
                 self.nextBtn.setObjectName("nextBtn")
                 self.nextBtn.clicked.connect(self.nextQuestion)
-                self.welcomeFrame = QtWidgets.QFrame(self.startPageFrame)
-                self.welcomeFrame.setGeometry(QtCore.QRect(0, 0, 1631, 951))
+                self.backBtn = QtWidgets.QPushButton(self.startPageFrame)
+                self.backBtn.setGeometry(QtCore.QRect(550, 510, 171, 111))
+                self.backBtn.setStyleSheet("image: url(:/images/back.jpg);")
+                self.backBtn.setText("")
+                self.backBtn.setObjectName("backBtn")
+                self.backBtn.clicked.connect(self.prev)
+                self.label_18 = QtWidgets.QLabel(self.startPageFrame)
+                self.label_18.setGeometry(QtCore.QRect(100, 0, 111, 41))
+                font = QtGui.QFont()
+                font.setFamily("Comic Sans MS")
+                font.setPointSize(18)
+                font.setBold(False)
+                font.setItalic(True)
+                font.setWeight(9)
+                self.label_18.setFont(font)
+                self.label_18.setObjectName("label_18")
+                self.homeBtn = QtWidgets.QPushButton(self.startPageFrame)
+                self.homeBtn.setGeometry(QtCore.QRect(0, 0, 71, 61))
+                self.homeBtn.setStyleSheet("image: url(:/newPrefix/homepage.png);")
+                self.homeBtn.setText("")
+                self.homeBtn.setObjectName("homeBtn")
+                self.homeBtn.clicked.connect(self.goHome)
+                self.welcomeFrame = QtWidgets.QFrame(self.finishFrame)
+                self.welcomeFrame.setGeometry(QtCore.QRect(0, 0, 1631, 981))
                 self.welcomeFrame.setFrameShape(QtWidgets.QFrame.StyledPanel)
                 self.welcomeFrame.setFrameShadow(QtWidgets.QFrame.Raised)
                 self.welcomeFrame.setObjectName("welcomeFrame")
                 self.welcomeIcon = QtWidgets.QLabel(self.welcomeFrame)
-                self.welcomeIcon.setGeometry(QtCore.QRect(24, 40, 261, 781))
+                self.welcomeIcon.setGeometry(QtCore.QRect(10, 0, 261, 251))
                 self.welcomeIcon.setStyleSheet("background-image: url(:/images/welcome.jpg);")
                 self.welcomeIcon.setObjectName("welcomeIcon")
                 self.welcomeLabel = QtWidgets.QLabel(self.welcomeFrame)
-                self.welcomeLabel.setGeometry(QtCore.QRect(290, 0, 1321, 101))
+                self.welcomeLabel.setGeometry(QtCore.QRect(280, 0, 1341, 101))
                 self.welcomeLabel.setObjectName("welcomeLabel")
                 self.logoIcon = QtWidgets.QLabel(self.welcomeFrame)
-                self.logoIcon.setGeometry(QtCore.QRect(310, 100, 1281, 631))
-                self.logoIcon.setStyleSheet("\n"
-        "background-image: url(:/images/user_awareness1.png);")
+                self.logoIcon.setGeometry(QtCore.QRect(610, 100, 541, 621))
+                self.logoIcon.setStyleSheet("background-image: url(:/newPrefix/user_awareness1.png);")
                 self.logoIcon.setObjectName("logoIcon")
                 self.startbtn = QtWidgets.QPushButton(self.welcomeFrame)
-                self.startbtn.setGeometry(QtCore.QRect(800, 740, 221, 201))
+                self.startbtn.setGeometry(QtCore.QRect(800, 760, 221, 201))
                 self.startbtn.setStyleSheet("*{\n"
         "    border-radius: 40%;\n"
         "    \n"
@@ -254,18 +297,21 @@ class Ui_surveyWindow(object):
                 _translate = QtCore.QCoreApplication.translate
                 surveyWindow.setWindowTitle(_translate("surveyWindow", "SANS Survey Window"))
                 self.emojiLabel.setText(_translate("surveyWindow", "<html><head/><body><p><br/></p></body></html>"))
-                self.label_2.setText(_translate("surveyWindow", "<html><head/><body><p>Thank You " + self.fname+ " for Taking your Time to fill this survey, do have a Lovely Day!!</p></body></html>"))
+                self.label_2.setText(_translate("surveyWindow", "<html><head/><body><p><span style=\" font-size:16pt; font-weight:400;\">" + self.fname+ " THANK YOU FOR TAKING YOUR TIME TO FILL THIS SURVEY, DO HAVE A LOVELY DAY !</span></p></body></html>"))
                 self.label_3.setText(_translate("surveyWindow", "<html><head/><body><p align=\"center\"><span style=\" font-size:24pt; font-weight:600;\">Your Score :</span></p></body></html>"))
                 self.scoreLabel.setText(_translate("surveyWindow", "<html><head/><body><p align=\"center\">0</p><p align=\"center\">0</p></body></html>"))
                 self.commentLabel.setText(_translate("surveyWindow", "<html><head/><body><p align=\"center\">You Can Be Better with a Cyber user security awareness training!!</p></body></html>"))
                 self.option3_2.setText(_translate("surveyWindow", "no"))
                 self.option1.setText(_translate("surveyWindow", "yes"))
-                self.questionLabel_2.setText(_translate("surveyWindow", "<html><head/><body><p>&quot;1.    What is your position within the company?&quot;,</p></body></html>"))
+                self.questionLabel_2.setText(_translate("surveyWindow", "<html><head/><body><p><span style=\" font-size:12pt;\">&quot;Do you use the same passwords for your work accounts as you do for your personnal accounts at home, such as facebook,twitter or your personnal email accounts?&quot;,</span></p></body></html>"))
                 self.option2.setText(_translate("surveyWindow", "yes"))
                 self.option3.setText(_translate("surveyWindow", "yes"))
+                self.label_18.setText(_translate("surveyWindow", "<html><head/><body><p><span style=\" font-size:12pt;\">HomePage</span></p></body></html>"))
                 self.welcomeIcon.setText(_translate("surveyWindow", "<html><head/><body><p><br/></p></body></html>"))
-                self.welcomeLabel.setText(_translate("surveyWindow", "<html><head/><body><p>Welcome <span style=\" font-size:12pt;\">" + self.fname+ "</span>!, Thank you for offering to participate in this test. CLick start to begin.</p></body></html>"))
-                self.logoIcon.setText(_translate("surveyWindow", "TextLabel"))
+                self.welcomeLabel.setText(_translate("surveyWindow", "<html><head/><body><p><span style=\" font-size:16pt;\">Welcome " + self.fname+ " !, Thank you for offering to participate in this test. CLick start to begin.</span></p></body></html>"))
+                self.logoIcon.setText(_translate("surveyWindow", "<html><head/><body><p><br/></p></body></html>"))
+
+
 
 from images import emoji, resource, source
 
@@ -277,4 +323,3 @@ if __name__ == "__main__":
     ui.setupUi(surveyWindow)
     surveyWindow.show()
     sys.exit(app.exec_())
-
